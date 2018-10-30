@@ -35,7 +35,19 @@ public class JavaCircle {
 	public String getColor(){
 		return myColor;
 	}
-	public void main(String args[]){
-				
+	
+	//mutator methods: change (set) the value of the instance fields
+	
+	public void setRadius(double r){
+		myRadius = r;
+	}
+	public void setXCenter(double x){
+		myXCenter = x;
+	}
+	public void setYCenter(double y){
+		myXCenter = y;
+	}
+	public void setColor(String color){
+		myColor = color;
 	}
 }
