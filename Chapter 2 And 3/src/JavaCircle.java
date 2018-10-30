@@ -4,7 +4,7 @@
 		
 //big picture: classes are the blueprint of an object
 public class JavaCircle {
-	//when you make a class, you need three thihngs:
+	//when you make a class, you need three things:
 	//1. instance fields (Have/attributes)
 	//2. the constructor(s) - tells us how to create an "instances of" the object
 	//3. methods (DOES/behaviors)
