@@ -17,7 +17,9 @@ public class BankAccount
 {
     /* Instance Fields */
 	//account number (STRING of 6 numbers)
+	private String accNum;
     //account balance
+	private double accBalance;
 
     /**
      * Constructors construct a bank account by initializing an the instance field variables
@@ -26,17 +28,19 @@ public class BankAccount
      */
     public BankAccount(String acctNum, double initialBalance)
     {
-    
+    	accNum = acctNum;
+    	accBalance = initialBalance;
     }
     
     public BankAccount(String acctNum)
     {
-    	
+    	accNum = acctNum;
     }
     
     public BankAccount ()   //Default constructor sets object's balance to 0
     {						//and account number to 000000
-    						
+    	accNum="000000";
+    	accBalance=0;
     }
 
  //****************************************************************************
@@ -45,7 +49,7 @@ public class BankAccount
      */
     public String getAccount()    //"accessor/gettor" method
     {
-       	
+       	return accNum;
     }
 
     /**
@@ -53,7 +57,7 @@ public class BankAccount
      */
     public double getBalance()     //"accessor/gettor" method
     {
-      	
+    	return accBalance; 	
     }
     
     /**
@@ -62,7 +66,7 @@ public class BankAccount
      */
     public void setAccountNumber(String acctNum) //"mutator/setter" method
     {											 
-    	  	
+    	accNum = acctNum;  	
     }
     
     /**
@@ -71,7 +75,7 @@ public class BankAccount
      */
     public void deposit(double amount)      //"mutator/setter" method
     {
-    											
+    	accBalance += amount;										
     }
 
     /**
@@ -80,7 +84,7 @@ public class BankAccount
      */
     public void withdraw(double amount)     //"mutator/setter" method
     {
-      	
+      	accBalance -= amount;
     }
 
 
