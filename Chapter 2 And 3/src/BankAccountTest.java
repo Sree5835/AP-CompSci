@@ -1,4 +1,4 @@
-/**
+/** test
  *  A class to test the BankAccount class.
  */
 public class BankAccountTest
