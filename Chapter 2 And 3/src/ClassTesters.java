@@ -30,5 +30,18 @@ public class ClassTesters {
 	CoordinatePoint c2 = new CoordinatePoint(-3,8);
 	JavaCircle funC = new JavaCircle(3, c2, "orange");
 	
+	
+	
+	
+	//contacts
+	
+	String first = "sree";
+	String last = "sanakkayala";
+	
+	Contacts sree = new Contacts(first, last , "1234");
+	Contacts nathan = new Contacts("nathan", "pryne", "6789");
+	
+	System.out.println(sree.getPhoneNum(first, last));
+	
 	}
 }

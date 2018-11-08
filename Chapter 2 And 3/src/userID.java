@@ -1,14 +1,14 @@
 
 public class userID {
-	private String[] firstName;
-	private String[] lastName;
-	private String[] idString;
+	private String firstName;
+	private String lastName;
+	private String idString;
 	
 	//constructor
 	public userID(String first, String last){
-		firstName[firstName.length+1]=first;
-		lastName[lastName.length+1]=last;
-		idString[idString.length+1] = first+last.substring(0,3);
+		firstName =first;
+		lastName=last;
+		idString = first+last.substring(0,3);
 	}
 	
 	//mutators
@@ -35,7 +35,7 @@ public class userID {
 		}
 	}
 	
-	//setters
+	//getters
 	public String getIdString(String first, String last){
 		int value1 = -1;
 		int value2 = -1;
@@ -51,6 +51,19 @@ public class userID {
 		}
 		if(value1 == value2){
 		return  idString[value1];
+		}else{
+			return "The names are incorrect";
+		}
+	}
+	public String getUserName(userID val){
+		int value = -1;
+		for(int i=0;i<idString.length;i++){
+			if(idString[i].equals(val)){
+				value = i;
+			}
+		}
+		if(value != -1){
+		return  firstName[value] + ", " + lastName[value];
 		}else{
 			return "The names are incorrect";
 		}
