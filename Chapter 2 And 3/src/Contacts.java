@@ -1,40 +1,34 @@
 
 public class Contacts {
-	private String[] phoneNum;
-	private userID[] idString;
+	private userID idString;
+	private String phoneNum;
 	
 	//constructor
 	public Contacts(String first, String last, String num){
-		phoneNum[phoneNum.length+1]=num;
-		idString[idString.length+1]= new userID(first,last);
+		phoneNum=num;
+		idString= new userID(first,last);
 	}
 	
 	public Contacts(userID idVal, String num){
-		phoneNum[phoneNum.length+1]=num;
-		idString[idString.length+1]=idVal;
+		phoneNum=num;
+		idString=idVal;
 	}
 	
 	//mutators
-	public void setPhoneNum(String first, String last, String newNum){
-		int value = -1;
-		for(int i=0;i<idString.length;i++){
-			if(idString[i].equals(new userID(first, last))){
-				value = i;
-			}
-		}
-		if(value != -1){
-		phoneNum[value]= newNum;
+	public void addPhoneNum(String first, String last, String newNum){
+		if(idString.equals(new userID(first, last))){
+			phoneNum[phoneNum.length+1]= newNum;
 		}
 	}
 	public void setContactName(String num,String newFirst, String newLast){
 		int value = -1;
-		for(int i=0;i<phoneNum.length;i++){
-			if(phoneNum[i].equals(num)){
+		for(int i=0;i<phoneNum.length;i++) {
+			if(phoneNum[i]==num) {
 				value = i;
 			}
 		}
-		if(value != -1){
-		idString[value] = new userID(newFirst, newLast);
+		if(phoneNum[value].equals(num)&&value!=-1){
+			idString = new userID(newFirst, newLast);
 		}
 	}
 	
@@ -42,31 +36,24 @@ public class Contacts {
 	
 	
 	//getters
-	public String getContactName(String num){
-		int value = -1;
-		for(int i=0;i<phoneNum.length;i++){
-			if(phoneNum[i].equals(num)){
-				value = i;
-			}
-		}
-		if (value == -1){
-			return "Given number does not exist";
-		}else{
-			return idString[value].toString();
-		}
+	public String getContactName(){
+			return idString.getUserName();
 	}
-	public String getPhoneNum(String first, String last){
-		int value = -1;
-		for(int i=0;i<idString.length;i++){
-			if(idString[i].equals(new userID(first, last))){
-				value = i;
-			}
+	public String getPhoneNum(int num){
+			return phoneNum[num];
+	}
+	public String getAllPhoneNum(){
+		String str = "";
+		for(int i=0;i<phoneNum.length;i++) {
+				str += phoneNum[i] + " ";
 		}
-		if (value == -1){
-			return "Given name does not exist";
-		}else{
-			return phoneNum[value];
-		}
+		return str;
+	}
+	public int getNumberOfPhoneNum(){
+		return phoneNum.length;
+	}
+	public String getGeneratedId(){
+		return idString.getIdString();
 	}
 
 }

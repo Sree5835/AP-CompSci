@@ -38,10 +38,17 @@ public class ClassTesters {
 	String first = "sree";
 	String last = "sanakkayala";
 	
-	Contacts sree = new Contacts(first, last , "1234");
-	Contacts nathan = new Contacts("nathan", "pryne", "6789");
-	
-	System.out.println(sree.getPhoneNum(first, last));
+	ArrayContacts contact1 = new ArrayContacts(first, last , "1234");
+	System.out.println();
+	System.out.println(contact1.getContactName() + "'s phone number is: " +contact1.getPhoneNum(0));
+	System.out.println(contact1.getContactName() + " has " + contact1.getNumberOfPhoneNum() + " phone numbers");
+	contact1.addPhoneNum("567687");
+	System.out.println(contact1.getContactName() + "'s phone number is: " +contact1.getPhoneNum(1));
+	System.out.println(contact1.getContactName() + " has " + contact1.getNumberOfPhoneNum() + " phone numbers");
+	contact1.setContactName("john", "riddle");;
+	System.out.println(contact1.getContactName() + "'s phone number is: " +contact1.getPhoneNum(1));
+	System.out.println(contact1.getContactName() + " has " + contact1.getNumberOfPhoneNum() + " phone numbers");
+	System.out.println(contact1.getContactName() + "'s phone id is: " +contact1.getGeneratedId());
 	
 	}
 }
