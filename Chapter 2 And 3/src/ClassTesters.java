@@ -38,11 +38,11 @@ public class ClassTesters {
 	String first = "sree";
 	String last = "sanakkayala";
 	
-	ArrayContacts contact1 = new ArrayContacts(first, last , "1234");
+	ArrayContacts contact1 = new ArrayContacts(first, last , "630-133-5356");
 	System.out.println();
 	System.out.println(contact1.getContactName() + "'s phone number is: " +contact1.getPhoneNum(0));
 	System.out.println(contact1.getContactName() + " has " + contact1.getNumberOfPhoneNum() + " phone numbers");
-	contact1.addPhoneNum("567687");
+	contact1.addPhoneNum("630-467-4657");
 	System.out.println(contact1.getContactName() + "'s phone number is: " +contact1.getPhoneNum(1));
 	System.out.println(contact1.getContactName() + " has " + contact1.getNumberOfPhoneNum() + " phone numbers");
 	contact1.setContactName("john", "riddle");;
