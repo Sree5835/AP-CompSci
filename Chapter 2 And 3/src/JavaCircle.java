@@ -21,7 +21,8 @@ public class JavaCircle {
 	//the purpose of the constructor is to assign initial values to all instance fields. 
 	
 	public JavaCircle(double r, CoordinatePoint center, String c){
-		myRadius = r;
+		//the this.{instance name} is the same thing as the instance name itself
+		this.myRadius= r;
 		myCenter = center;
 		myColor = c;
 	}
@@ -31,6 +32,17 @@ public class JavaCircle {
 		myCenter = new CoordinatePoint(x,y);
 		myColor = c;
 	}
+	
+	public JavaCircle(){
+		//the this below has the same functionality as the commented code underneath it
+		this(1, new CoordinatePoint(), "Black");
+		/* my radius = 1;
+		 * myCenter = new CoordinatePoint(x,y);
+		 * myColor =c;
+		 */
+	}
+	//the keyword - this - refers to any constructor in the same class.
+	
 	
 	
 	
@@ -59,6 +71,10 @@ public class JavaCircle {
 	}
 	public String getColor(){
 		return myColor;
+	}
+	public double getArea(){
+		return (Math.PI)*Math.pow(this.getRadius(),2);
+		//the this.getRadius(); from above is using the key word this and calls a method in this class.
 	}
 	
 	//mutator methods: change (set) the value of the instance fields
