@@ -94,4 +94,9 @@ public class JavaCircle {
 	public void setColor(String color){
 		myColor = color;
 	}  
+	
+	//toString(): returns the stte of the object
+	public String toString(){
+		return "\nmyRadius = " + myRadius + "\nmyCenter = (" + myCenter.getX()+", "+ myCenter.getY() + ")\nmyColor = " + myColor;
+	}
 }

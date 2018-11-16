@@ -30,6 +30,11 @@ public class ClassTesters {
 	CoordinatePoint c2 = new CoordinatePoint(-3,8);
 	JavaCircle funC = new JavaCircle(3, c2, "orange");
 	
+	JavaCircle c3 = new JavaCircle(2, new CoordinatePoint(6,-2), "Purple");
+	//print out the state of the object
+	System.out.println(c3.toString());
+	//the line above and the line below mean exactly the same thing.
+	System.out.println(c3);
 	
 	
 	
@@ -49,6 +54,9 @@ public class ClassTesters {
 	System.out.println(contact1.getContactName() + "'s phone number is: " +contact1.getPhoneNum(1));
 	System.out.println(contact1.getContactName() + " has " + contact1.getNumberOfPhoneNum() + " phone numbers");
 	System.out.println(contact1.getContactName() + "'s phone id is: " +contact1.getGeneratedId());
+	
+	
+
 	
 	}
 }
