@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 /*
 A class that draws an alien face.
 */
-public class FaceComponent extends JComponent
+public class FaceComponent extends JComponent //https://www.ecosia.org/images?q=turkey+clip+art#id=C3FFB8A5E8F80E63D0EAC96A26B71AD635782727
 {
 	public void paintComponent(Graphics g)
 	{
