@@ -18,7 +18,7 @@ public class FaceComponent extends JComponent //https://www.ecosia.org/images?q=
 		Graphics2D g2 = (Graphics2D) g;
 		
 		// Create the head
-		Ellipse2D.Double head = new Ellipse2D.Double(25, 50, 60, 60);
+		Ellipse2D.Double head = new Ellipse2D.Double(25, 50, 100, 100);
 		
 		// Change the color of the upcoming "draw command" to green, to make the eyes green
 		g2.setColor(Color.ORANGE.darker());
@@ -27,61 +27,44 @@ public class FaceComponent extends JComponent //https://www.ecosia.org/images?q=
 		g2.fill(head);
 		
 		// Create the head
-		Ellipse2D.Double body = new Ellipse2D.Double(10, 100, 100, 100);
+		Ellipse2D.Double body = new Ellipse2D.Double(35, 60, 80, 80);
 				
 		// Change the color of the upcoming "draw command" to green, to make the eyes green
-		g2.setColor(Color.ORANGE.darker());
+		g2.setColor(Color.ORANGE);
 				
 		//Draw the head
 		g2.fill(body);
 		
-		// Change the color of the upcoming "draw command" to green, to make the eyes green
-		g2.setColor(Color.GREEN);
-		
-		//Create the left eye
-		Rectangle eye = new Rectangle(25, 70, 15, 15);
-		
-		//Draw the left eye
-		g2.fill(eye);
-		
-		//Move the left eye over so it becomes the right eye
-		eye.translate(50, 0);
-		
-		//Draw the right eye
-		g2.fill(eye);
 		
 		// Create the mouth
-		Line2D.Double leg1 = new Line2D.Double(40, 180, 20, 230);
-		Line2D.Double toe_1_1 = new Line2D.Double(20, 230, 10, 240);
-		Line2D.Double toe_1_2 = new Line2D.Double(20, 230, 20, 240);
-		Line2D.Double toe_1_3 = new Line2D.Double(20, 230, 30, 240);
-		Line2D.Double leg2 = new Line2D.Double(80, 180, 100, 230);
-		Line2D.Double toe_2_1 = new Line2D.Double(100, 230, 90, 240);
-		Line2D.Double toe_2_2 = new Line2D.Double(100, 230, 20, 240);
-		Line2D.Double toe_2_3 = new Line2D.Double(100, 230, 110, 240);
+		Line2D.Double one = new Line2D.Double(75, 60, 75, 140);
+		Line2D.Double two = new Line2D.Double(36, 100, 114, 100);
+		Line2D.Double three = new Line2D.Double(46, 71, 104, 129);
+		Line2D.Double four = new Line2D.Double(46, 130, 104, 72);
 		
 		//change the color of the mouth to red, and then draw it
-		g2.setColor(Color.RED);
-		g2.draw(leg1);
-		g2.draw(toe_1_1);
-		g2.draw(toe_1_2);
-		g2.draw(toe_1_3);
-		g2.draw(leg2);
-		g2.draw(toe_2_1);
-		g2.draw(toe_2_2);
-		g2.draw(toe_2_3);
+		g2.setColor(Color.BLACK);
+		g2.draw(one);
+		g2.draw(two);
+		g2.draw(three);
+		g2.draw(four);
 		
 		// Draw the greeting
 		g2.setColor(Color.BLUE);
-		g2.drawString("Bawk! Bawk!", 60, 300);
+		int i = 15;
+		while(i<=18){
+			g2.drawString("H a p p y  T h a n k g i v i n g!", i, 40);	
+			i++;
+		}
+		//g2.drawString("Happy Thankgiving", 60, 300);
 	}
 	
 	//For this project, you will not need to change this main method at all!  
 	public static void main(String[] args)
 	{
 		JFrame frame = new JFrame();
-		frame.setSize(150, 250);
-		frame.setTitle("An Alien Face");
+		frame.setSize(200, 200);
+		frame.setTitle("The Thanksgiving Pi");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		FaceComponent component = new FaceComponent();
