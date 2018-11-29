@@ -55,7 +55,11 @@ public class ClassTesters {
 	System.out.println(contact1.getContactName() + " has " + contact1.getNumberOfPhoneNum() + " phone numbers");
 	System.out.println(contact1.getContactName() + "'s phone id is: " +contact1.getGeneratedId());
 	
+	//ComplexNumber class test
 	
+	ComplexNumber one = new ComplexNumber(2,4);
+	ComplexNumber two = new ComplexNumber(3,-5);
+	System.out.println(one.multiply(two));
 
 	
 	}
