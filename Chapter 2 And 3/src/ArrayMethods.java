@@ -2,8 +2,7 @@ public class ArrayMethods
 {
 	
 	public static void main(String[] args){
-		int[] numbers = {5, 3, 8, 23, 7, 3, 9, 3, 10, 3, 3, 5, 4};
-		System.out.println(min(numbers));
+		//test in here
 	}
 	/*The display method will receive an array of int values and return a
 			String in the following format:
@@ -134,7 +133,7 @@ public class ArrayMethods
 			smallest value in the array*/
 	public static int min(int[] values)
 	{
-		int lowest = 0;
+		int lowest = max(values);
 		for(int i=0;i<values.length;i++){
 			if(values[i]<=lowest){
 				lowest = values[i];
@@ -153,7 +152,7 @@ public class ArrayMethods
 		int indexNum = -1;
 		for(int i=0;i<values.length;i++){
 			if(values[i]==lowest){
-				indexNum = i;
+				return i;
 			}
 		}
 		return indexNum;
@@ -185,7 +184,7 @@ public class ArrayMethods
 	public static int occurrences(int[] values, int lowerbound, int upperbound, int target)
 	{
 		int o = 0;
-		for(int i=lowerbound;i<upperbound;i++){
+		for(int i=lowerbound;i<=upperbound;i++){
 			if(values[i]==target){
 				o++;
 			}
@@ -249,11 +248,11 @@ public class ArrayMethods
 	*/
 	public static int largestGap(int[] values) 
 	{
-		int index = 0;
+		int index = -1;
 		int difference = 0;
 		for(int i=0;i<values.length-1;i++){
-			if(values[i+1]-values[i]>difference){
-				difference = values[i+1]-values[i];
+			if(Math.abs(values[i+1]-values[i])>difference){
+				difference = Math.abs(values[i+1]-values[i]);
 				index = i;
 			}
 		}
