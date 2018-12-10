@@ -1,4 +1,6 @@
 import java.awt.Rectangle;
+import java.util.ArrayList;
+
 public class ArrayNotes {
 	public static void main(String[] args){
 		//declare an array of 10 ints
@@ -36,5 +38,25 @@ public class ArrayNotes {
 		for(int i=0;i<rect.length;i++){
 			rect[i] = new Rectangle((i+1),(i+1));
 		}
+		
+		//Declaring and instantiating an ArrayList:
+		//ArrayList<ClassName> variableName = 
+		//new ArrayList<ClassName>();
+		ArrayList<String> words = new ArrayList<String>();
+		words.add("Ameya");
+		words.add("Echols");
+		words.add("Izzo");
+	}
+	
+	public static int[] addSlot(int[] numbers, int index, int value){
+		int[] a = new int[numbers.length+1];
+		for(int i=0;i<index;i++){
+			a[i]=numbers[i];
+		}
+		a[index]=value;
+		for(int i=index+1;i<numbers.length+1;i++){
+			a[i]=numbers[i-1];
+		}
+		return a;
 	}
 }
