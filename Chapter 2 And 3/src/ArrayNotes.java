@@ -46,6 +46,24 @@ public class ArrayNotes {
 		words.add("Ameya");
 		words.add("Echols");
 		words.add("Izzo");
+		
+		//the .remove() method removes the object from the ArrayList.
+		words.remove("Echols");
+		//using primitive
+		Integer x = new Integer(3);
+		ArrayList<Integer> a = new ArrayList<Integer>();
+		a.add(x);
+		
+		
+		//traversing an ArrayList 
+		for(int i=0;i<words.size();i++){
+			System.out.println(words.get(i));
+		}
+		
+		// this uses an advancd method: the for each loop.
+		for(String s:words){
+			System.out.println(s);
+		}
 	}
 	
 	public static int[] addSlot(int[] numbers, int index, int value){
