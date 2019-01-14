@@ -1,8 +1,13 @@
 public class SearchAndSort
 {
-	public void Main(String[] args){
-		
-	}
+//	public void Main(String[] args){
+//		int[] values = {-3, -1, 4, 6, 11, 16, 22, 42, 50, 51, 61, 75, 80, 89, 203, 514, 719, 1012};
+//		System.out.println("3 tests for binary search:");
+//		System.out.print((binarySearch(values, 203)==14) + ", ");
+//		System.out.print((binarySearch(values, -3)==0) + ", ");
+//		System.out.print(binarySearch(values, 1013)==-1); //1013 is not in the array, so linearSearch should return -1
+//		System.out.println("\n");
+//	}
 	//precondition: values is a non-empty array of integers
 	//postcondition: return the index of the target, or -1 if target is not in the array
 	public static int linearSearch(int[] values, int target)
@@ -32,78 +37,70 @@ public class SearchAndSort
 	//postcondition: return the index of the target, or -1 if target is not in the array
 	public static int binarySearch(int[] values, int target)
 	{
-		while(1==1){
-		int f = 0;
-		int l = values.length;
-		int m = (f+l)/2;
-		if(f>l){
-			return -1;
-		}
-		if(target > values[m]){
-			f = m+1;
-		}else if(target < values[m]){
-			l=m-1;
-		}else{
-			return m;
-		}
-		}
+		int start = 0;
+        int end = values.length - 1;
+        while (start <= end) {
+            int mid = (start + end) / 2;
+            if (target == values[mid]) {
+                return mid;
+            }
+            if (target < values[mid]) {
+                end = mid - 1;
+            } else {
+                start = mid + 1;
+            }
+        }
+        return -1;
 	}
 	
 	//String version
 	public static int binarySearch(String[] values, String target)
 	{
-		while(1==1){
-			int f = 0;
-			int l = values.length;
-			int m = (f+l)/2;
-			if(f>l){
-				return -1;
-			}
-			if(target.compareTo(values[m])>0){
-				f = m+1;
-			}else if(target.compareTo(values[m])<0){
-				l=m-1;
-			}else{
-				return m;
-			}
-			}
+		int start = 0;
+        int end = values.length - 1;
+        while (start <= end) {
+            int mid = (start + end) / 2;
+            if (target.equals(values[mid])) {
+                return mid;
+            }
+            if (target.compareTo(values[mid])<0) {
+                end = mid - 1;
+            } else {
+                start = mid + 1;
+            }
+        }
+        return -1;
 	}
 	
 	//precondition: values is a non-empty array of integers
 	//postcondition: returns a new array that is the sorted version of the input parameter
 	public static int[] bubbleSort(int[] values)
 	{
-		boolean swapped = true;
-		int temp;
 		
-		while(swapped){
-			swapped = false;
-			for(int i = 0; i< values.length-1;i++){
-				temp=values[i];
-				values[i]=values[i+1];
-				values[i+1]=temp;
-				swapped=true;
-			}
-		}
+		int n = values.length; 
+        for (int i = 0; i < n-1; i++) 
+            for (int j = 0; j < n-i-1; j++) 
+                if (values[j] > values[j+1]) 
+                { 
+                    int temp = values[j]; 
+                    values[j] = values[j+1]; 
+                    values[j+1] = temp; 
+                } 
 		return values;
-		
 	}
 	
 	//String version
 	public static String[] bubbleSort(String[] values)
 	{
-		boolean swapped = true;
-		String temp;
-		
-		while(swapped){
-			swapped = false;
-			for(int i = 0; i< values.length-1;i++){
-				temp=values[i];
-				values[i]=values[i+1];
-				values[i+1]=temp;
-				swapped=true;
-			}
-		}
+		int n = values.length; 
+        for (int i = 0; i < n-1; i++) 
+            for (int j = 0; j < n-i-1; j++) 
+                if (values[j].compareTo(values[j+1])>0) 
+                { 
+                    String temp = values[j]; 
+                    values[j] = values[j+1]; 
+                    values[j+1] = temp; 
+                } 
 		return values;
 	}
 	
@@ -112,38 +109,50 @@ public class SearchAndSort
 	public static int[] selectionSort(int[] values)
 	{
 		int temp;
-		while(1==1){
-		for(int i=0;i<values.length;i++){
-			
+		for(int i=0;i<values.length-1;i++) {
+			int minIndex = i;
+			for (int j = i+1; j < values.length; j++) {
+                if (values[j] < values[minIndex]) {
+                    minIndex = j;
+                }
+			}
+			temp = values[i];
+			values[i]=values[minIndex];
+			values[minIndex]=temp;
 		}
 		return values;
-		}
 	}
 	
 	//String version
 	public static String[] selectionSort(String[] values)
 	{
-		
+		String temp;
+		for(int i=0;i<values.length-1;i++) {
+			int minIndex = i;
+			for (int j = i+1; j < values.length; j++) {
+                if (values[j].compareTo(values[minIndex])<0) {
+                    minIndex = j;
+                }
+			}
+			temp = values[i];
+			values[i]=values[minIndex];
+			values[minIndex]=temp;
+		}
+		return values;
 	}
 	
 	//precondition: values is a non-empty array of integers
 	//postcondition: returns a new array that is the sorted version of the input parameter
 	public static int[] insertionSort(int[] values)
 	{
-		int j;
-		int temp;
-		for(j = 1;j<values.length;j++){
-			if(values[j]<values[j-1]){
-				temp = values[j];
-					for(int i=j-1;i>0;i--){
-						if(i>0){
-							values[i] = values[i-1];
-						}
-						if(values[i-1]<temp){
-							values[i]=temp;
-						}	
-					}
+		for(int i=1;i<values.length;i++) {
+			int num = values[i];
+			int j = i-1;
+			while(j>=0&&values[j]>num) {
+				values[j+1]=values[j];
+				j--;
 			}
+			values[j+1]=num;
 		}
 		return values;
 	}
@@ -151,16 +160,16 @@ public class SearchAndSort
 	//String version
 	public static String[] insertionSort(String[] values)
 	{
-		
+		for(int i=1;i<values.length;i++) {
+			String num = values[i];
+			int j = i-1;
+			while(j>=0&&values[j].compareTo(num)>0) {
+				values[j+1]=values[j];
+				j--;
+			}
+			values[j+1]=num;
+		}
+		return values;
 	}
-	
-	private static boolean isSorted(int[] values){
-		 for(int i=0;i<values.length-1;i++){
-			 if(values[i]>values[i+1]){
-				 return false;
-			 }
-		 }
-		 return true;
-	 }
 	
 }
