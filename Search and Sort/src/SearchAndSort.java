@@ -76,16 +76,17 @@ public class SearchAndSort
 	//postcondition: returns a new array that is the sorted version of the input parameter
 	public static int[] bubbleSort(int[] values)
 	{
-		
-		int n = values.length; 
-        for (int i = 0; i < n-1; i++) 
-            for (int j = 0; j < n-i-1; j++) 
+        for (int i = 0; i < values.length-1; i++) {
+            for (int j = 0; j < values.length-i-1; j++) {
                 if (values[j] > values[j+1]) 
                 { 
+                	//swapping
                     int temp = values[j]; 
                     values[j] = values[j+1]; 
                     values[j+1] = temp; 
                 } 
+            }
+        }
 		return values;
 	}
 	
