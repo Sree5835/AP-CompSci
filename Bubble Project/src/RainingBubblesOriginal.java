@@ -26,7 +26,8 @@ public class RainingBubblesOriginal extends Applet
 	private final int DELAY = 30;
 	private final int MAX_SIZE = 30;
 	private final int MAX_CIRCLES = 250;
-	private final int MAX_VELOCITY = 20;
+	private final int MAX_XVELOCITY = 3;
+	private final int MAX_YVELOCITY = 10;
 	
 	//these are called "parallel arrays." Is there a better way to handle all
 	//of this data?  Hint... these could all be ATTRIBUTES of a certain class.  Make that class and 
@@ -102,9 +103,9 @@ public class RainingBubblesOriginal extends Applet
 		//instantiating new circles at the top and setting its values
 //		y[index] = 0;
 //		x[index] = (int)(Math.random()*this.getWidth());
-//		yvelocity[index] = (int)(Math.random()*MAX_VELOCITY)+2;	
+//		yvelocity[index] = (int)(Math.random()*MAX_YVELOCITY)+2;	
 //		size[index] = (int)(Math.random()*MAX_SIZE);	
-		particle[index] = new Particle((int)(Math.random()*this.getWidth()),0,0,(int)(Math.random()*MAX_VELOCITY)+2,(int)(Math.random()*MAX_SIZE));
+		particle[index] = new Particle((int)(Math.random()*this.getWidth()),0,(int)(Math.random()*MAX_XVELOCITY),(int)(Math.random()*MAX_YVELOCITY)+2,(int)(Math.random()*MAX_SIZE));
 	}
 	
 	private void makeSnow(int index,int x, int y, int size)
@@ -113,7 +114,7 @@ public class RainingBubblesOriginal extends Applet
 		//instantiating new circles at the top and setting its values
 //		y[index] = 0;
 //		x[index] = (int)(Math.random()*this.getWidth());
-//		yvelocity[index] = (int)(Math.random()*MAX_VELOCITY)+2;	
+//		yvelocity[index] = (int)(Math.random()*MAX_YVELOCITY)+2;	
 //		size[index] = (int)(Math.random()*MAX_SIZE);	
 		particle[index] = new Particle(x,y,0,0,size);
 	}
@@ -132,11 +133,12 @@ public class RainingBubblesOriginal extends Applet
 //			{
 //				resetCircle(count);//reset circle
 //			}
+			particle[count].setX(particle[count].getX()+particle[count].getXVelocity());
 			particle[count].setY(particle[count].getY()+particle[count].getYVelocity());
 			if(particle[count].getY()>this.getHeight())//when the ball hits the bottom of the screen
 			{
-				makeSnow(count,particle[count].getX(),this.getHeight()-particle[count].getSize(),particle[count].getSize());
 				resetCircle(count);//reset circle
+				makeSnow(count,particle[count].getX(),this.getHeight()-particle[count].getSize(),particle[count].getSize());
 			}
 			g2.setPaint(Color.CYAN);//set background of the ball to blue	
 			circle =new Ellipse2D.Double(particle[count].getX(), particle[count].getY(), particle[count].getSize(), particle[count].getSize());	//updating position on the screen
