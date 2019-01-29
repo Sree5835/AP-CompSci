@@ -87,9 +87,9 @@ public class RainingBubblesOriginal extends Applet
 		offscreen = createImage(d.width, d.height);
 		offgc = offscreen.getGraphics();
 		
-		offgc.setColor(getBackground());
+		offgc.setColor(Color.CYAN);
 		offgc.fillRect(0,0,d.width,d.height);
-		offgc.setColor(getForeground());
+		offgc.setColor(Color.CYAN);
 		
 		paint(offgc);
 		
@@ -105,7 +105,7 @@ public class RainingBubblesOriginal extends Applet
 //		x[index] = (int)(Math.random()*this.getWidth());
 //		yvelocity[index] = (int)(Math.random()*MAX_YVELOCITY)+2;	
 //		size[index] = (int)(Math.random()*MAX_SIZE);	
-		particle[index] = new Particle((int)(Math.random()*this.getWidth()),0,(int)(Math.random()*MAX_XVELOCITY),(int)(Math.random()*MAX_YVELOCITY)+2,(int)(Math.random()*MAX_SIZE));
+		particle[index] = new Particle((int)(Math.random()*this.getWidth()),0,(int)(Math.random()*MAX_XVELOCITY)+1,(int)(Math.random()*MAX_YVELOCITY)+2,(int)(Math.random()*MAX_SIZE));
 	}
 	
 	private void makeSnow(int index,int x, int y, int size)
@@ -140,7 +140,7 @@ public class RainingBubblesOriginal extends Applet
 				resetCircle(count);//reset circle
 				makeSnow(count,particle[count].getX(),this.getHeight()-particle[count].getSize(),particle[count].getSize());
 			}
-			g2.setPaint(Color.CYAN);//set background of the ball to blue	
+			g2.setPaint(Color.WHITE);//set background of the ball to blue	
 			circle =new Ellipse2D.Double(particle[count].getX(), particle[count].getY(), particle[count].getSize(), particle[count].getSize());	//updating position on the screen
 			g2.fill(circle);// adds into the screen
 					
