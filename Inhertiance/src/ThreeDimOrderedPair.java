@@ -18,10 +18,10 @@ public class ThreeDimOrderedPair extends OrderedPair {
 		return z;
 	}
 	
-	public double distanceFrom(ThreeDimOrderedPair p){
+	public double distanceFrom(OrderedPair p){
 		double xDiff = super.getX() - p.getX();
 		double yDiff = super.getY() - p.getY();
-		double zDiff = this.z - p.getZ();
+		double zDiff = this.z - ((ThreeDimOrderedPair)p).getZ();
 		
 		return Math.sqrt(xDiff*xDiff + yDiff*yDiff+ zDiff*zDiff);
 	}
