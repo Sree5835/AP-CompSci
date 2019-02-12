@@ -13,8 +13,8 @@ public class InheritanceTester {
 	//p3.setZ(-2); this is an complier error because p3 is type OrderedPair which doesn't have access to Z. So to get over it:
 	((ThreeDimOrderedPair)p3).setZ(-2);
 	System.out.println(p3.toString());//whenever the parent class can be overridden, the computer always does it.
-	System.out.println(p3.distanceFrom(p2));
-	System.out.println(p3.distanceFrom(p1));
+	//System.out.println(p3.distanceFrom(p2));
+	//System.out.println(p3.distanceFrom(p1));
 	
 	}
 }
