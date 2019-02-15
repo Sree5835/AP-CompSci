@@ -10,6 +10,5 @@ public interface Flier {
 	String takeOff();
 	String land();
 	double getAltitude();
-	double getSpeed();
 	double getTotalDistance();
 	}
