@@ -3,6 +3,7 @@ public class WarmUps {
 	
 	public static void main(String[] args){
 		System.out.println(fib(4));
+		System.out.println(reverse("hello!"));
 	}
 //	public static int fib(int n){
 //		int[] arr = new int[n+1];
@@ -15,10 +16,15 @@ public class WarmUps {
 //	}
 	
 	public static int fib(int n){
-		if(n==1||n==2){
+		if(n<=2)
 			return 1;
-		}else{
-			return fib(n-2)+fib(n-1);
+		return fib(n-2)+fib(n-1);
+	}
+	
+	public static String reverse(String s){
+		if(s.length()==1){
+			return s;
 		}
+		return s.substring(s.length()-1, s.length()) + reverse(s.substring(0, s.length()-1));
 	}
 }
