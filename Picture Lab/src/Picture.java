@@ -139,7 +139,54 @@ public class Picture extends SimplePicture
       }
     }
   }
-  
+  /** Method to make fish pop out*/
+  public void fixUnderWater()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray)
+      {
+        if(pixelObj.getBlue()>=170)
+  		  pixelObj.setBlue(240);
+        pixelObj.setBlue(pixelObj.getBlue()-28);
+
+      }
+    }
+  }
+  /** Method to make sepia color*/
+  public void sepia()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray)
+      {
+    	  int outputRed = (int) ((pixelObj.getRed() * .393) + (pixelObj.getGreen() *.769) + (pixelObj.getBlue() * .189));
+    	  int outputGreen = (int) ((pixelObj.getRed() * .349) + (pixelObj.getGreen() *.686) + (pixelObj.getBlue() * .168));
+    	  int outputBlue = (int) ((pixelObj.getRed() * .272) + (pixelObj.getGreen() *.534) + (pixelObj.getBlue() * .131));
+    	 
+    	  pixelObj.setRed(outputRed);
+    	  pixelObj.setGreen(outputGreen);
+    	  pixelObj.setBlue(outputBlue);
+
+      }
+    }
+  }
+  /** Method to instagram colors*/
+  public void crazyFun()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray)
+      {
+        pixelObj.setRed(255-pixelObj.getRed());
+        pixelObj.setGreen(255-pixelObj.getGreen());
+        pixelObj.setBlue(255-pixelObj.getBlue());
+      }
+    }
+  }
   /** Method that mirrors the picture around a 
     * vertical mirror in the center of the picture
     * from left to right */
@@ -267,7 +314,7 @@ public class Picture extends SimplePicture
   {
     Picture beach = new Picture("beach.jpg");
     beach.explore();
-    beach.zeroBlue();
+    beach.sepia();
     beach.explore();
   }
   
