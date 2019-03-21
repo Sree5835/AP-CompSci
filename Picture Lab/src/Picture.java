@@ -139,7 +139,6 @@ public class Picture extends SimplePicture
       }
     }
   }
-<<<<<<< HEAD
   /** Method to make grayscale colors*/
   public void crazyFun()
   {
@@ -171,7 +170,6 @@ public class Picture extends SimplePicture
     }
   }
   
-=======
   /** Method to make fish pop out*/
   public void fixUnderWater()
   {
@@ -206,21 +204,6 @@ public class Picture extends SimplePicture
       }
     }
   }
-  /** Method to instagram colors*/
-  public void crazyFun()
-  {
-    Pixel[][] pixels = this.getPixels2D();
-    for (Pixel[] rowArray : pixels)
-    {
-      for (Pixel pixelObj : rowArray)
-      {
-        pixelObj.setRed(255-pixelObj.getRed());
-        pixelObj.setGreen(255-pixelObj.getGreen());
-        pixelObj.setBlue(255-pixelObj.getBlue());
-      }
-    }
-  }
->>>>>>> branch 'master' of https://github.com/Sree5835/AP-CompSci.git
   /** Method that mirrors the picture around a 
     * vertical mirror in the center of the picture
     * from left to right */
@@ -388,11 +371,7 @@ public void mirrorHorizontal()
   {
     Picture beach = new Picture("beach.jpg");
     beach.explore();
-<<<<<<< HEAD
-    beach.mirrorVerticalRightToLeft();
-=======
     beach.sepia();
->>>>>>> branch 'master' of https://github.com/Sree5835/AP-CompSci.git
     beach.explore();
   }
   
