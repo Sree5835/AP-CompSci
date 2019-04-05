@@ -141,17 +141,17 @@ public class Picture extends SimplePicture {
 				if (pixelObj.getRed() % 2 == 0) {
 					pixelObj.setRed(pixelObj.getRed() - 30);
 				} else {
-					pixelObj.setRed(pixelObj.getRed());
+					pixelObj.setRed(pixelObj.getRed()+30);
 				}
 				if (pixelObj.getGreen() % 2 == 0) {
 					pixelObj.setGreen(pixelObj.getGreen() - 30);
 				} else {
-					pixelObj.setGreen(pixelObj.getGreen());
+					pixelObj.setGreen(pixelObj.getGreen()+30);
 				}
 				if (pixelObj.getBlue() % 2 == 0) {
 					pixelObj.setBlue(pixelObj.getBlue() - 30);
 				} else {
-					pixelObj.setBlue(pixelObj.getBlue());
+					pixelObj.setBlue(pixelObj.getBlue()+30);
 				}
 				// int color =
 				// (pixelObj.getRed()+pixelObj.getGreen()+pixelObj.getBlue())/3;
@@ -348,6 +348,24 @@ public class Picture extends SimplePicture {
 			}
 		}
 	}
+	
+	public void chromakey (Picture fromPic) {
+		Pixel fromPixel = null;
+		Pixel toPixel = null;
+		Pixel[][] toPixels = this.getPixels2D();
+		Pixel[][] fromPixels = fromPic.getPixels2D();
+		for (int fromRow = 0, toRow = 0; fromRow < fromPixels.length
+				&& toRow < toPixels.length; fromRow++, toRow++) {
+			for (int fromCol = 0, toCol = 0; fromCol < fromPixels[0].length
+					&& toCol < toPixels[0].length; fromCol++, toCol++) {
+				if(!(toPixel.getRed()>=240&&toPixel.getBlue()>=240&&toPixel.getGreen()>=240)){
+					fromPixel = fromPixels[fromRow][fromCol];
+					toPixel = toPixels[toRow][toCol];
+					toPixel.setColor(fromPixel.getColor());
+				}
+			}
+		}
+	}
 
 	/** Method to create a collage of several pictures */
 	public void createCollage() {
@@ -393,12 +411,13 @@ public class Picture extends SimplePicture {
 	 * Main method for testing - each class in Java can have a main method
 	 */
 	public static void main(String[] args) {
-		// Picture beach = new Picture("beach.jpg");
-		Picture classPic = new Picture("Period 2 2019.jpg");
-		Picture scaledPic = classPic.scale(.2, .2);
-		// scaledPic.explore();
-		scaledPic.mirrorHorizontal();
-		scaledPic.explore();
+//		Picture classPic = new Picture("Period 2 2019.jpg");
+//		Picture scaledPic = classPic.scale(.2, .2);
+//		scaledPic.explore();
+//		scaledPic.makeGrain();
+		//Picture me = new Picture("me.jpg");
+		//Picture k = new Picture("koala.jpg");
+		//me.chromakey(k);
 	}
 
 } // this } is the end of class Picture, put all new methods before this
