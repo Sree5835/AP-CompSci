@@ -411,9 +411,9 @@ public class Picture extends SimplePicture {
 	 * Main method for testing - each class in Java can have a main method
 	 */
 	public static void main(String[] args) {
-		Picture classPic = new Picture("Period 2 2019.jpg");
-		Picture scaledPic = classPic.scale(.2, .2);
-		scaledPic.explore();
+//		Picture classPic = new Picture("Period 2 2019.jpg");
+//		Picture scaledPic = classPic.scale(.2, .2);
+//		scaledPic.explore();
 //		scaledPic.makeGrain();
 		//Picture me = new Picture("me.jpg");
 		//Picture k = new Picture("koala.jpg");
